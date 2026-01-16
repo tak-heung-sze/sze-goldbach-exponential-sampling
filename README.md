@@ -1,34 +1,49 @@
-# A Low-Variance Exponential Sampling Platform for Empirical Testing of the Hardy–Littlewood Goldbach Heuristic
+# A Low-Variance Exponential Sampling Platform  
+## for Empirical Testing of the Hardy–Littlewood Goldbach Heuristic
 
-**Author:** Tak Heung Sze  
-**Affiliation:** Independent Researcher  
+**Tak Heung Sze**  
+Independent Researcher  
 
 ---
 
-## Overview
+### Abstract
 
-This repository contains the research paper and supporting materials for:
+We introduce a structured exponential subsequence designed as a low-variance numerical platform for empirical testing of asymptotic heuristics in additive prime number theory. Focusing on Goldbach partition counts, we study the sequence
 
-> **A Low-Variance Exponential Sampling Platform for Empirical Testing of the Hardy–Littlewood Goldbach Heuristic**
-
-The work introduces a **deterministic exponential subsequence**
 \[
-a(n) = 9 \cdot 2^n
+a(n) = 9 \cdot 2^n ,
 \]
-(referred to as the *Sze exponential sequence*) as a **low-variance empirical platform** for testing asymptotic heuristics in additive prime number theory, with specific focus on the Hardy–Littlewood Goldbach heuristic.
 
-The contribution is **methodological rather than conjectural**:  
-the sequence reduces sampling noise while preserving the relevant arithmetic structure, enabling clearer observation of slow asymptotic convergence behavior.
+referred to as the *Sze exponential sequence*.  
+For each \( N = a(n) \), we compute the number of Goldbach partitions \( g(N) \) and compare it with the Hardy–Littlewood prediction \( E_{\mathrm{HL}}(N) \), including the singular series correction.
+
+We show that this exponential subsequence yields a notably stable ratio
+
+\[
+R(N) = \frac{g(N)}{E_{\mathrm{HL}}(N)},
+\]
+
+with reduced variance relative to general even integers.  
+A matched modular control confirms that the observed stability arises from variance reduction rather than additional arithmetic bias.
 
 ---
 
-## Repository Structure
+### 1. Scope of the Repository
+
+This repository serves as a **research artifact** accompanying the paper:
+
+> *A Low-Variance Exponential Sampling Platform for Empirical Testing of the Hardy–Littlewood Goldbach Heuristic*
+
+The contribution is **methodological**.  
+No claim is made regarding a proof of the Goldbach conjecture or modification of the Hardy–Littlewood heuristic.
+
+---
+
+### 2. Repository Structure
 
 ```text
 .
-├── README.md        # This file
+├── README.md
 ├── paper/
 │   └── sze_goldbach_exponential_sampling_v1.pdf
-├── data/            # (optional) numerical results / tables
-├── src/             # (optional) code for computation or simulation
-└── results/         # (optional) figures or derived outputs
+├── data/        (optional; numerical
