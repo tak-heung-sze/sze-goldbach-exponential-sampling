@@ -1,91 +1,47 @@
-# A Low-Variance Exponential Sampling Platform
-## for Empirical Testing of the Hardy–Littlewood Goldbach Heuristic
+# A Low-Variance Exponential Sampling Platform for Empirical Testing of the Hardy-Littlewood Goldbach Heuristic
 
-**Tak Heung Sze**  
-Independent Researcher
+## 📝 Abstract
+This project introduces a structured exponential subsequence, the **Sze Exponential Sequence**, designed as a low-variance numerical platform for testing asymptotic heuristics in additive prime number theory. By focusing on Goldbach partition counts, this framework provides a clean and reproducible environment for observing convergence behavior.
 
----
+## 🧮 Mathematical Definition
 
-## Overview
+### 1. The Sze Exponential Sequence
+The sequence is defined as:
 
-This research introduces a deterministic exponential subsequence as a low-variance numerical
-platform for empirical testing of asymptotic heuristics in additive prime number theory,
-with specific focus on the Hardy–Littlewood Goldbach heuristic.
+$$a(n) = 9 \cdot 2^{n}$$
 
-The study is methodological in nature and does not claim a proof of the Goldbach conjecture
-nor any modification of the Hardy–Littlewood constants.
+where $n \in \mathbb{N}$.
 
----
+### 2. Evaluation Metric
+The primary evaluation metric is the ratio between the exact Goldbach partitions $g(N)$ and the Hardy-Littlewood prediction $E_{HL}(N)$:
 
-## Definition of the Sampling Sequence
+$$R(N) = \frac{g(N)}{E_{HL}(N)}$$
 
-We define the exponential subsequence
+The prediction $E_{HL}(N)$ is calculated as:
 
-a(n) = 9 · 2^n,
+$$E_{HL}(N) = 2C_{2} \frac{N}{(\ln N)^{2}} \mathfrak{S}(N)$$
 
-referred to as the **Sze exponential sequence**.
+Where:
+* $C_{2}$ is the twin prime constant.
+* $\mathfrak{S}(N)$ is the singular series correction.
 
-For each N = a(n), we compute the number of Goldbach partitions g(N), defined as the number
-of unique prime pairs (p, q) with p ≤ q such that p + q = N.
+## 🌟 Key Properties
+The Sze exponential sequence exhibits three properties relevant to empirical testing:
+* **Exponential Scaling**: Enables testing across large numerical ranges with modest $n$.
+* **Fixed Modular Structure**: Constant divisibility by 2 and 3 yields a stable singular series contribution.
+* **Deterministic Construction**: Ensures full reproducibility of results.
+* **Variance Reduction**: Provides a stable ratio series with reduced variance relative to general even integers.
 
-The empirical results are compared with the Hardy–Littlewood prediction E_HL(N),
-including the singular series correction for divisibility by 3.
+## 📊 Experimental Results
+Across the tested range ($N \approx 10^{4}$ to $10^{9}$), the following results were observed:
+* **Stability**: The ratio $R(N)$ remained within the range $[0.56, 0.68]$.
+* **Mean Ratio**: The average ratio was observed at $\overline{R} = 0.604 \pm 0.04$.
+* **Consistency**: Results are consistent with the expected $O(1/\ln N)$ asymptotic convergence predicted by the Hardy-Littlewood heuristic.
 
----
+## 🚀 Future Roadmap
+* **Extended Range**: Future work aims to extend the range toward $n=50$ ($N \approx 10^{15}$).
+* **Parallel Computation**: Implement optimized, WebAssembly-based parallel computation frameworks.
 
-## Evaluation Metric
-
-The primary quantity of interest is the ratio
-
-R(N) = g(N) / E_HL(N).
-
-Under the Hardy–Littlewood heuristic, this ratio is expected to converge slowly to 1
-with deviations governed by an O(1 / ln N) error term.
-
----
-
-## Key Empirical Observation
-
-Sampling along the exponential subsequence a(n) = 9 · 2^n yields a notably stable ratio
-series R(N) with reduced variance relative to sampling general even integers.
-
-A matched control group restricted to the same modular class confirms that the observed
-stability arises from variance reduction rather than additional arithmetic bias.
-
----
-
-## Methodological Rationale
-
-Empirical investigations of Goldbach-type heuristics typically suffer from large numerical
-fluctuations at moderate scales.
-
-This framework adopts a variance-reduction strategy based on:
-
-- Exponential scaling, enabling large numerical ranges with modest index size.
-- Fixed divisibility by 2 and 3, yielding a constant singular series contribution.
-- Fully deterministic construction, ensuring complete reproducibility.
-
-The objective is clarity of asymptotic observation rather than numerical enhancement.
-
----
-
-## Scope and Limitations
-
-- The analysis is restricted to a specific exponential subsequence.
-- Results are finite-range and computationally bounded.
-- No conjectural strengthening or probabilistic claims are made.
-
-This work provides a clean empirical observation platform rather than a theoretical refinement.
-
----
-
-## Repository Structure
-
-```text
-.
-├── README.md
-├── paper/
-│   └── sze_goldbach_exponential_sampling_v1.pdf
-├── data/        (optional; numerical tables)
-├── src/         (optional; computation code)
-└── results/     (optional; figures or derived outputs)
+## 📚 Citation
+If you use this work, please cite it as follows:
+> **Sze, T. H.** (2026). *A Low-Variance Exponential Sampling Platform for Empirical Testing of the Hardy-Littlewood Goldbach Heuristic*. Independent Researcher.
